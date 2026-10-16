@@ -49,8 +49,8 @@ export const AdminLoginPage: React.FC = () => {
       <div className="w-full max-w-md space-y-8 bg-white border border-stone-200 p-8 rounded-lg shadow-sm">
         {/* Header */}
         <div className="text-center">
-          <div className="w-12 h-12 bg-slate-900 text-teal-400 flex items-center justify-center rounded-md mx-auto shadow-xs">
-            <Shield className="w-6 h-6" />
+          <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-indigo-700 text-white flex items-center justify-center rounded-xl mx-auto shadow-lg shadow-blue-500/25">
+            <Shield className="w-7 h-7 text-white" />
           </div>
           <h2 className="mt-4 text-2xl font-extrabold text-slate-900 tracking-tight">
             Administrator Sign-In
@@ -61,21 +61,21 @@ export const AdminLoginPage: React.FC = () => {
         </div>
 
         {/* Demo Credentials Box */}
-        <div className="p-3.5 bg-stone-50 border border-stone-200 rounded-md text-xs space-y-2">
+        <div className="p-3.5 bg-blue-50/60 border border-blue-200/80 rounded-lg text-xs space-y-2">
           <div className="flex items-center justify-between">
-            <span className="font-bold text-stone-700 flex items-center space-x-1.5">
-              <KeyRound className="w-3.5 h-3.5 text-teal-700" />
+            <span className="font-bold text-blue-900 flex items-center space-x-1.5">
+              <KeyRound className="w-3.5 h-3.5 text-blue-700" />
               <span>Evaluation Credentials</span>
             </span>
             <button
               type="button"
               onClick={handleUseDemoCredentials}
-              className="text-[11px] font-semibold text-teal-800 hover:text-teal-950 underline"
+              className="text-[11px] font-semibold text-blue-800 hover:text-blue-950 underline"
             >
               Fill Demo Values
             </button>
           </div>
-          <div className="text-stone-600 font-mono text-[11px] space-y-0.5">
+          <div className="text-stone-700 font-mono text-[11px] space-y-0.5">
             <div>Email: <strong className="text-slate-900">admin@eventflow.dev</strong></div>
             <div>Password: <strong className="text-slate-900">AdminPass123!</strong></div>
           </div>
@@ -108,7 +108,7 @@ export const AdminLoginPage: React.FC = () => {
                 placeholder="admin@eventflow.dev"
                 required
                 disabled={isSubmitting}
-                className="w-full pl-9 pr-3 py-2 text-sm bg-stone-50 border border-stone-300 rounded-md focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
+                className="w-full pl-9 pr-3 py-2 text-sm bg-stone-50 border border-stone-300 rounded-md focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
           </div>
@@ -130,7 +130,7 @@ export const AdminLoginPage: React.FC = () => {
                 placeholder="••••••••••••"
                 required
                 disabled={isSubmitting}
-                className="w-full pl-9 pr-3 py-2 text-sm bg-stone-50 border border-stone-300 rounded-md focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
+                className="w-full pl-9 pr-3 py-2 text-sm bg-stone-50 border border-stone-300 rounded-md focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
           </div>
@@ -138,7 +138,7 @@ export const AdminLoginPage: React.FC = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full mt-2 py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white bg-slate-900 hover:bg-slate-800 active:bg-slate-950 rounded-md shadow-xs transition-colors flex items-center justify-center space-x-2 disabled:opacity-50"
+            className="w-full mt-2 py-2.5 px-4 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:from-blue-700 active:to-indigo-700 rounded-lg shadow-md shadow-blue-500/20 transition-all flex items-center justify-center space-x-2 disabled:opacity-50"
           >
             {isSubmitting ? (
               <>

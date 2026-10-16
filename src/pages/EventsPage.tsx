@@ -99,36 +99,38 @@ export const EventsPage: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-      {/* Page Title & Context */}
-      <div className="border-b border-stone-200 pb-6">
-        <span className="text-xs font-bold uppercase tracking-wider text-teal-800">
-          Catalog & Directory
-        </span>
-        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
-          Explore Available Events
-        </h1>
-        <p className="text-sm text-stone-600 mt-1">
-          Browse verified university workshops, symposia, and coding masterclasses with live capacity reservation.
-        </p>
+      {/* Page Title & Context with Blue Gradient Banner */}
+      <div className="relative rounded-2xl bg-hero-gradient bg-hero-radial p-8 sm:p-10 text-white overflow-hidden shadow-lg border border-blue-900/50">
+        <div className="relative z-10 max-w-2xl">
+          <div className="inline-flex items-center space-x-1.5 px-3 py-1 bg-blue-500/20 text-cyan-300 rounded-md text-xs font-semibold mb-3 border border-blue-400/30 backdrop-blur-md">
+            <span>Catalog & Directory</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+            Explore Available Events
+          </h1>
+          <p className="text-sm text-blue-100/80 mt-2 leading-relaxed">
+            Browse verified university workshops, symposia, and coding masterclasses with live capacity reservation.
+          </p>
+        </div>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-white border border-stone-200 rounded-lg p-5 shadow-2xs space-y-4">
+      <div className="bg-white border border-stone-200/90 rounded-xl p-5 sm:p-6 shadow-sm space-y-4">
         {/* Row 1: Search and Submit */}
         <form onSubmit={handleSearchSubmit} className="flex gap-2">
           <div className="relative flex-1">
-            <Search className="absolute left-3.5 top-2.5 w-4 h-4 text-stone-400" />
+            <Search className="absolute left-3.5 top-3 w-4 h-4 text-stone-400" />
             <input
               type="text"
               placeholder="Search by event title, speaker, or topics..."
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 text-sm bg-stone-50 border border-stone-300 rounded-md focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900"
+              className="w-full pl-10 pr-4 py-2.5 text-sm bg-stone-50 border border-stone-300 rounded-lg focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
           </div>
           <button
             type="submit"
-            className="px-4 py-2 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-md transition-colors shrink-0"
+            className="px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 rounded-lg shadow-sm shadow-blue-500/20 transition-all shrink-0"
           >
             Search
           </button>

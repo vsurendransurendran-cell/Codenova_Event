@@ -9,8 +9,9 @@ import {
   Users,
   Compass,
   FileCheck,
-  Award,
   Sparkles,
+  Zap,
+  Ticket,
 } from 'lucide-react';
 import { api } from '../utils/api.ts';
 import { EventItem } from '../types/index.ts';
@@ -57,43 +58,49 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="space-y-16 pb-16">
-      {/* Editorial Hero Section */}
-      <section className="relative bg-white border-b border-stone-200 pt-12 pb-16 sm:pt-20 sm:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Premium Blue Gradient Hero Section */}
+      <section className="relative bg-hero-gradient bg-hero-radial text-white pt-16 pb-20 sm:pt-24 sm:pb-28 overflow-hidden border-b border-blue-900/60 shadow-xl">
+        {/* Subtle geometric grid backdrop overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-stone-100 text-stone-700 rounded-sm text-xs font-semibold mb-6 border border-stone-200">
-              <span className="w-2 h-2 rounded-full bg-teal-600 animate-pulse" />
-              <span>Academic & Technical Event Platform</span>
+            {/* Pill Tag */}
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-blue-500/10 text-blue-200 rounded-md text-xs font-semibold mb-6 border border-blue-400/25 backdrop-blur-md shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]" />
+              <span className="tracking-wide">Academic & Technical Event Platform</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Find your next opportunity to connect, learn, and participate.
+            {/* Main Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-white">
+              Find your next opportunity to{' '}
+              <span className="text-gradient-blue drop-shadow-xs">connect, learn, and lead.</span>
             </h1>
 
-            <p className="mt-5 text-base sm:text-lg text-stone-600 leading-relaxed font-normal">
-              EVENTFLOW provides verified registration and capacity management for collegiate hackathons, engineering symposiums, and professional masterclasses with real-time seat accounting.
+            <p className="mt-6 text-base sm:text-lg text-blue-100/85 leading-relaxed font-normal max-w-2xl">
+              EVENTFLOW delivers verified registration and real-time capacity management for collegiate hackathons, engineering symposia, and cutting-edge tech masterclasses with concurrency guarantees.
             </p>
 
-            {/* Quick Search & Discovery Box */}
+            {/* Search & Filter Box with Glassmorphism */}
             <form
               onSubmit={handleSearchSubmit}
-              className="mt-8 p-2 bg-stone-50 border border-stone-300 rounded-lg shadow-xs flex flex-col sm:flex-row gap-2"
+              className="mt-10 p-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl flex flex-col sm:flex-row gap-2.5"
             >
               <div className="relative flex-1">
-                <Search className="absolute left-3.5 top-3 w-4 h-4 text-stone-400" />
+                <Search className="absolute left-3.5 top-3 w-4 h-4 text-blue-200/70" />
                 <input
                   type="text"
-                  placeholder="Search by topic, keyword, or venue..."
+                  placeholder="Search by topic, speaker, or venue..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-3 py-2 text-sm bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-900"
+                  className="w-full pl-10 pr-3 py-2.5 text-sm bg-white text-slate-900 placeholder:text-stone-400 border border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 shadow-inner"
                 />
               </div>
 
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-3 py-2 text-sm bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-900 text-stone-700"
+                className="px-3.5 py-2.5 text-sm bg-white text-stone-700 border border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
               >
                 <option value="all">All Disciplines</option>
                 {categories.map((cat) => (
@@ -105,24 +112,25 @@ export const HomePage: React.FC = () => {
 
               <button
                 type="submit"
-                className="px-5 py-2 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 active:bg-slate-950 rounded-md shadow-xs transition-colors shrink-0"
+                className="px-6 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:from-blue-700 active:to-indigo-700 rounded-lg shadow-md shadow-blue-900/40 transition-all shrink-0 flex items-center justify-center space-x-2"
               >
-                Explore Events
+                <span>Explore Events</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
             </form>
 
             {/* System Trust Pillars */}
-            <div className="mt-8 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-stone-600 font-medium">
-              <span className="flex items-center space-x-1.5">
-                <ShieldCheck className="w-4 h-4 text-teal-700" />
+            <div className="mt-8 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-blue-200/90 font-medium">
+              <span className="flex items-center space-x-2 bg-blue-950/40 px-2.5 py-1 rounded-md border border-blue-500/20 backdrop-blur-xs">
+                <ShieldCheck className="w-4 h-4 text-cyan-300" />
                 <span>Zero Overbooking Guarantee</span>
               </span>
-              <span className="flex items-center space-x-1.5">
-                <CheckCircle2 className="w-4 h-4 text-teal-700" />
-                <span>Duplicate Registration Protection</span>
+              <span className="flex items-center space-x-2 bg-blue-950/40 px-2.5 py-1 rounded-md border border-blue-500/20 backdrop-blur-xs">
+                <CheckCircle2 className="w-4 h-4 text-cyan-300" />
+                <span>Duplicate Prevention Protocol</span>
               </span>
-              <span className="flex items-center space-x-1.5">
-                <FileCheck className="w-4 h-4 text-teal-700" />
+              <span className="flex items-center space-x-2 bg-blue-950/40 px-2.5 py-1 rounded-md border border-blue-500/20 backdrop-blur-xs">
+                <FileCheck className="w-4 h-4 text-cyan-300" />
                 <span>Instant Verified Credential</span>
               </span>
             </div>
@@ -134,10 +142,11 @@ export const HomePage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 pb-4 border-b border-stone-200">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-800">
-              Live Opportunities
-            </span>
-            <h2 className="text-2xl font-bold text-slate-900 tracking-tight mt-1">
+            <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-sm bg-blue-50 text-blue-800 text-[11px] font-bold uppercase tracking-wider border border-blue-200/60 mb-1">
+              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+              <span>Live Opportunities</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
               Upcoming Events & Masterclasses
             </h2>
             <p className="text-xs sm:text-sm text-stone-500 mt-1">
@@ -146,7 +155,7 @@ export const HomePage: React.FC = () => {
           </div>
           <Link
             to="/events"
-            className="inline-flex items-center space-x-1.5 text-xs font-bold text-slate-900 hover:text-teal-800 transition-colors"
+            className="inline-flex items-center space-x-1.5 text-xs font-bold text-blue-700 hover:text-blue-900 transition-colors"
           >
             <span>View All Events Catalog</span>
             <ArrowRight className="w-4 h-4" />
@@ -179,14 +188,15 @@ export const HomePage: React.FC = () => {
         )}
       </section>
 
-      {/* How Registration Works (Requirement 5.E) */}
+      {/* How Registration Works Section with Gradient Steps */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border border-stone-200 rounded-lg p-8 sm:p-12">
+        <div className="bg-gradient-to-br from-white to-blue-50/50 border border-blue-200/60 rounded-xl p-8 sm:p-12 shadow-sm">
           <div className="max-w-2xl mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-800">
-              Protocol & Workflow
-            </span>
-            <h2 className="text-2xl font-bold text-slate-900 tracking-tight mt-1">
+            <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-sm bg-blue-100 text-blue-900 text-[11px] font-bold uppercase tracking-wider mb-2">
+              <Zap className="w-3.5 h-3.5 text-blue-600" />
+              <span>Protocol & Workflow</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
               How Event Registration Works
             </h2>
             <p className="text-xs sm:text-sm text-stone-600 mt-1">
@@ -195,43 +205,43 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-5 bg-stone-50 border border-stone-200 rounded-md">
-              <span className="text-xs font-mono font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded-xs">
-                Step 01
-              </span>
-              <h3 className="text-sm font-bold text-slate-900 mt-3">Discover an Event</h3>
+            <div className="p-6 bg-white border border-stone-200/80 rounded-lg shadow-2xs hover:border-blue-300 transition-all">
+              <div className="w-8 h-8 rounded-md bg-gradient-to-br from-blue-600 to-indigo-700 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-blue-500/20">
+                01
+              </div>
+              <h3 className="text-sm font-bold text-slate-900 mt-4">Discover an Event</h3>
               <p className="text-xs text-stone-600 mt-1.5 leading-relaxed">
                 Filter by academic discipline, format, schedule, and live capacity status in our catalog.
               </p>
             </div>
 
-            <div className="p-5 bg-stone-50 border border-stone-200 rounded-md">
-              <span className="text-xs font-mono font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded-xs">
-                Step 02
-              </span>
-              <h3 className="text-sm font-bold text-slate-900 mt-3">Review Details</h3>
+            <div className="p-6 bg-white border border-stone-200/80 rounded-lg shadow-2xs hover:border-blue-300 transition-all">
+              <div className="w-8 h-8 rounded-md bg-gradient-to-br from-blue-600 to-indigo-700 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-blue-500/20">
+                02
+              </div>
+              <h3 className="text-sm font-bold text-slate-900 mt-4">Review Details</h3>
               <p className="text-xs text-stone-600 mt-1.5 leading-relaxed">
                 Inspect speaker credentials, prerequisites, venue information, and remaining seat counts.
               </p>
             </div>
 
-            <div className="p-5 bg-stone-50 border border-stone-200 rounded-md">
-              <span className="text-xs font-mono font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded-xs">
-                Step 03
-              </span>
-              <h3 className="text-sm font-bold text-slate-900 mt-3">Submit Registration</h3>
+            <div className="p-6 bg-white border border-stone-200/80 rounded-lg shadow-2xs hover:border-blue-300 transition-all">
+              <div className="w-8 h-8 rounded-md bg-gradient-to-br from-blue-600 to-indigo-700 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-blue-500/20">
+                03
+              </div>
+              <h3 className="text-sm font-bold text-slate-900 mt-4">Submit Registration</h3>
               <p className="text-xs text-stone-600 mt-1.5 leading-relaxed">
                 Provide your institutional affiliation and domain interests. Normalized email prevents duplicate attempts.
               </p>
             </div>
 
-            <div className="p-5 bg-stone-50 border border-stone-200 rounded-md">
-              <span className="text-xs font-mono font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded-xs">
-                Step 04
-              </span>
-              <h3 className="text-sm font-bold text-slate-900 mt-3">Receive Confirmation</h3>
+            <div className="p-6 bg-white border border-stone-200/80 rounded-lg shadow-2xs hover:border-blue-300 transition-all">
+              <div className="w-8 h-8 rounded-md bg-gradient-to-br from-blue-600 to-indigo-700 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-blue-500/20">
+                04
+              </div>
+              <h3 className="text-sm font-bold text-slate-900 mt-4">Receive Confirmation</h3>
               <p className="text-xs text-stone-600 mt-1.5 leading-relaxed">
-                Obtain your unique registration reference code (<code className="text-slate-900 font-semibold">EVF-...</code>) with immediate database verification.
+                Obtain your unique registration reference code (<code className="text-blue-900 font-semibold">EVF-...</code>) with immediate database verification.
               </p>
             </div>
           </div>

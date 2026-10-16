@@ -289,7 +289,11 @@ export const EventDetailsPage: React.FC = () => {
                 <div className="w-full bg-stone-100 h-2.5 rounded-xs overflow-hidden border border-stone-200">
                   <div
                     className={`h-full transition-all duration-300 ${
-                      isFull ? 'bg-rose-500' : percentFilled >= 80 ? 'bg-amber-500' : 'bg-slate-900'
+                      isFull
+                        ? 'bg-rose-500'
+                        : percentFilled >= 80
+                        ? 'bg-amber-500'
+                        : 'bg-gradient-to-r from-blue-600 to-cyan-500'
                     }`}
                     style={{ width: `${percentFilled}%` }}
                   />
@@ -317,9 +321,9 @@ export const EventDetailsPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(true)}
-                  className="w-full py-3 px-4 text-xs font-bold uppercase tracking-wider text-white bg-slate-900 hover:bg-slate-800 active:bg-slate-950 rounded-md shadow-xs transition-colors flex items-center justify-center space-x-2"
+                  className="w-full py-3 px-4 text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:from-blue-700 active:to-indigo-700 rounded-lg shadow-md shadow-blue-600/20 transition-all flex items-center justify-center space-x-2"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-teal-400" />
+                  <CheckCircle2 className="w-4 h-4 text-cyan-300" />
                   <span>Register for this Event</span>
                 </button>
               ) : (

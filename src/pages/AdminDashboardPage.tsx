@@ -81,7 +81,7 @@ export const AdminDashboardPage: React.FC = () => {
             </a>
             <Link
               to="/admin/events/new"
-              className="inline-flex items-center space-x-1.5 px-4 py-2 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-md transition-colors shadow-xs"
+              className="inline-flex items-center space-x-1.5 px-4 py-2 text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 rounded-lg transition-all shadow-sm shadow-blue-500/20"
             >
               <PlusCircle className="w-4 h-4" />
               <span>Create Event</span>
@@ -106,14 +106,16 @@ export const AdminDashboardPage: React.FC = () => {
         ) : stats ? (
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Total Events */}
-            <div className="bg-white border border-stone-200 rounded-lg p-5 shadow-2xs">
+            <div className="bg-white border border-stone-200/90 border-t-2 border-t-blue-600 rounded-xl p-5 shadow-2xs">
               <div className="flex items-center justify-between text-stone-500">
                 <span className="text-xs font-semibold uppercase tracking-wider">Total Events</span>
-                <CalendarDays className="w-4 h-4 text-slate-700" />
+                <div className="p-1.5 bg-blue-50 text-blue-600 rounded-md">
+                  <CalendarDays className="w-4 h-4" />
+                </div>
               </div>
               <div className="mt-2 flex items-baseline space-x-2">
                 <span className="text-3xl font-extrabold text-slate-900">{stats.totalEvents}</span>
-                <span className="text-xs text-teal-800 font-semibold">
+                <span className="text-xs text-blue-700 font-bold">
                   ({stats.upcomingEvents} active)
                 </span>
               </div>
@@ -123,10 +125,12 @@ export const AdminDashboardPage: React.FC = () => {
             </div>
 
             {/* Confirmed Registrations */}
-            <div className="bg-white border border-stone-200 rounded-lg p-5 shadow-2xs">
+            <div className="bg-white border border-stone-200/90 border-t-2 border-t-indigo-600 rounded-xl p-5 shadow-2xs">
               <div className="flex items-center justify-between text-stone-500">
                 <span className="text-xs font-semibold uppercase tracking-wider">Confirmed Attendees</span>
-                <Users className="w-4 h-4 text-slate-700" />
+                <div className="p-1.5 bg-indigo-50 text-indigo-600 rounded-md">
+                  <Users className="w-4 h-4" />
+                </div>
               </div>
               <div className="mt-2 flex items-baseline space-x-2">
                 <span className="text-3xl font-extrabold text-slate-900">
@@ -140,25 +144,29 @@ export const AdminDashboardPage: React.FC = () => {
             </div>
 
             {/* Remaining Capacity */}
-            <div className="bg-white border border-stone-200 rounded-lg p-5 shadow-2xs">
+            <div className="bg-white border border-stone-200/90 border-t-2 border-t-cyan-500 rounded-xl p-5 shadow-2xs">
               <div className="flex items-center justify-between text-stone-500">
                 <span className="text-xs font-semibold uppercase tracking-wider">Open Seat Quota</span>
-                <TrendingUp className="w-4 h-4 text-slate-700" />
+                <div className="p-1.5 bg-cyan-50 text-cyan-600 rounded-md">
+                  <TrendingUp className="w-4 h-4" />
+                </div>
               </div>
               <div className="mt-2 flex items-baseline space-x-2">
                 <span className="text-3xl font-extrabold text-slate-900">{stats.remainingCapacity}</span>
                 <span className="text-xs text-stone-500">of {stats.totalCapacity} total</span>
               </div>
-              <p className="text-[11px] text-teal-800 font-semibold mt-1">
+              <p className="text-[11px] text-blue-700 font-semibold mt-1">
                 Atomic reservation active
               </p>
             </div>
 
             {/* Cancelled Registrations */}
-            <div className="bg-white border border-stone-200 rounded-lg p-5 shadow-2xs">
+            <div className="bg-white border border-stone-200/90 border-t-2 border-t-stone-400 rounded-xl p-5 shadow-2xs">
               <div className="flex items-center justify-between text-stone-500">
                 <span className="text-xs font-semibold uppercase tracking-wider">Cancelled Records</span>
-                <UserX className="w-4 h-4 text-stone-400" />
+                <div className="p-1.5 bg-stone-100 text-stone-500 rounded-md">
+                  <UserX className="w-4 h-4" />
+                </div>
               </div>
               <div className="mt-2 flex items-baseline space-x-2">
                 <span className="text-3xl font-extrabold text-stone-700">
@@ -202,7 +210,7 @@ export const AdminDashboardPage: React.FC = () => {
                       </div>
                       <div className="w-full bg-stone-100 h-2 rounded-xs overflow-hidden">
                         <div
-                          className="bg-slate-900 h-full rounded-xs transition-all duration-300"
+                          className="bg-gradient-to-r from-blue-600 to-indigo-600 h-full rounded-xs transition-all duration-300"
                           style={{ width: `${percent}%` }}
                         />
                       </div>
